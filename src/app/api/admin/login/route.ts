@@ -4,6 +4,11 @@ import { connectDB } from "@/lib/mongodb";
 import Admin from "@/models/Admin";
 import { ensureAdminExists, signAdminToken } from "@/lib/auth";
 import { ADMIN_EMAIL, ADMIN_PASSWORD } from "@/lib/constants";
+import { apiErrorMessage } from "@/lib/api-route";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export async function POST(request: NextRequest) {
   try {
@@ -43,7 +48,9 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Admin login error:", error);
-    return NextResponse.json({ error: "Login failed." }, { status: 500 });
+    return NextResponse.json(
+      { error: apiErrorMessage(error, "Login failed.") },
+      { status: 500 }
+    );
   }
 }

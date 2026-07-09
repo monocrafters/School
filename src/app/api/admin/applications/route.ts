@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Application from "@/models/Application";
 import { verifyToken } from "@/lib/auth";
+import { apiErrorMessage } from "@/lib/api-route";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export async function GET(request: NextRequest) {
   try {
@@ -34,9 +39,8 @@ export async function GET(request: NextRequest) {
       })),
     });
   } catch (error) {
-    console.error("Fetch applications error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch applications" },
+      { error: apiErrorMessage(error, "Failed to fetch applications") },
       { status: 500 }
     );
   }

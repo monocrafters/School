@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Application from "@/models/Application";
 import { signUserToken } from "@/lib/auth";
+import { apiErrorMessage } from "@/lib/api-route";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,9 +57,8 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Application submit error:", error);
     return NextResponse.json(
-      { error: "Failed to submit application. Please try again." },
+      { error: apiErrorMessage(error, "Failed to submit application. Please try again.") },
       { status: 500 }
     );
   }

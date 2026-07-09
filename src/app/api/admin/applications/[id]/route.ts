@@ -3,6 +3,11 @@ import { connectDB } from "@/lib/mongodb";
 import Application from "@/models/Application";
 import { verifyToken } from "@/lib/auth";
 import { APPLICATION_STATUSES } from "@/lib/constants";
+import { apiErrorMessage } from "@/lib/api-route";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export async function PATCH(
   request: NextRequest,
@@ -53,9 +58,8 @@ export async function PATCH(
       },
     });
   } catch (error) {
-    console.error("Update application error:", error);
     return NextResponse.json(
-      { error: "Failed to update application" },
+      { error: apiErrorMessage(error, "Failed to update application") },
       { status: 500 }
     );
   }
