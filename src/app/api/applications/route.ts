@@ -13,9 +13,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, phone, qualification, professionalQualification, subjects, cvFileName, cvData } = body;
 
-    if (!name?.trim() || !phone?.trim() || !qualification || !subjects?.length) {
+    if (!name?.trim() || !phone?.trim() || !qualification || !subjects?.length || !cvFileName || !cvData) {
       return NextResponse.json(
-        { error: "Please fill all required fields and select at least one subject." },
+        { error: "Please fill all required fields, upload your CV, and select at least one subject." },
         { status: 400 }
       );
     }

@@ -16,7 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${SCHOOL_FULL_NAME} | ${SCHOOL_MOTTO}`,
   description: `${SCHOOL_FULL_NAME} — Quality education in Dhamthal. ${SCHOOL_MOTTO}`,
-  icons: { icon: "/school-logo.png" },
+  icons: {
+    icon: [{ url: "/school-logo.png", type: "image/png" }],
+    apple: [{ url: "/school-logo.png", type: "image/png" }],
+    shortcut: ["/school-logo.png"],
+  },
 };
 
 export default function RootLayout({

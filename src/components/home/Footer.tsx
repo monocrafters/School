@@ -81,7 +81,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-slate-400">
-          &copy; {new Date().getFullYear()} {SCHOOL_FULL_NAME}. All rights reserved.
+          <p>&copy; {new Date().getFullYear()} {SCHOOL_FULL_NAME}. All rights reserved.</p>
+          <Link
+            href="/admin"
+            className="mt-2 inline-block text-slate-300 transition hover:text-white"
+          >
+            Login
+          </Link>
         </div>
       </div>
     </footer>

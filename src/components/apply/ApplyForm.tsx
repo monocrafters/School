@@ -81,9 +81,11 @@ export default function ApplyForm() {
       !form.name.trim() ||
       !form.phone.trim() ||
       !form.qualification ||
-      !form.subjects.length
+      !form.subjects.length ||
+      !form.cvFileName ||
+      !form.cvData
     ) {
-      setError("Please fill all required fields and select at least one subject.");
+      setError("Please fill all required fields, upload your CV, and select at least one subject.");
       return;
     }
 
@@ -215,7 +217,7 @@ export default function ApplyForm() {
 
           <div>
             <label className="mb-1.5 block text-sm font-medium text-slate-700">
-              Upload CV
+              Upload CV <span className="text-red-500">*</span>
             </label>
             <label className="flex cursor-pointer flex-col items-center gap-2 rounded-xl border-2 border-dashed border-slate-200 px-4 py-6 transition hover:border-[#1a237e]/50 hover:bg-slate-50">
               <Upload className="h-8 w-8 text-slate-400" />

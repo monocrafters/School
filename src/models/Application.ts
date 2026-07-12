@@ -8,8 +8,8 @@ const ApplicationSchema = new Schema(
     qualification: { type: String, required: true },
     professionalQualification: { type: String },
     subjects: { type: [String], required: true },
-    cvFileName: { type: String },
-    cvData: { type: String },
+    cvFileName: { type: String, required: true },
+    cvData: { type: String, required: true },
     status: {
       type: String,
       enum: APPLICATION_STATUSES,
