@@ -39,6 +39,7 @@ export async function GET(
         name: application.name,
         phone: application.phone,
         qualification: application.qualification,
+        professionalQualification: application.professionalQualification,
         subjects: application.subjects,
         cvFileName: application.cvFileName,
         cvData: application.cvData,

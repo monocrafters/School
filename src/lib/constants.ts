@@ -30,6 +30,8 @@ export const HERO_SUBJECTS = [
 
 export const HERO_QUALIFICATIONS = ["MSC", "BSC", "BS"] as const;
 
+export const PROFESSIONAL_QUALIFICATIONS = ["PTC", "B.Ed", "M.Ed"] as const;
+
 export const SUBJECTS = [...HERO_SUBJECTS] as const;
 
 export const QUALIFICATIONS = [...HERO_QUALIFICATIONS] as const;

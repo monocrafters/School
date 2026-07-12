@@ -50,6 +50,7 @@ export async function PATCH(
         name: application.name,
         phone: application.phone,
         qualification: application.qualification,
+        professionalQualification: application.professionalQualification,
         subjects: application.subjects,
         cvFileName: application.cvFileName,
         status: application.status,

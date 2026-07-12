@@ -203,7 +203,14 @@ export default function AdminDashboard() {
                   <tr key={app._id} className="border-b border-slate-50 hover:bg-slate-50/50">
                     <td className="px-5 py-4 font-medium text-slate-900">{app.name}</td>
                     <td className="px-5 py-4 text-slate-600">{app.phone}</td>
-                    <td className="px-5 py-4 text-slate-600">{app.qualification}</td>
+                    <td className="px-5 py-4 text-slate-600">
+                      {app.qualification}
+                      {app.professionalQualification && (
+                        <span className="block text-xs text-slate-400">
+                          {app.professionalQualification}
+                        </span>
+                      )}
+                    </td>
                     <td className="px-5 py-4">
                       <div className="flex flex-wrap gap-1">
                         {app.subjects.slice(0, 2).map((s) => (
@@ -260,7 +267,10 @@ export default function AdminDashboard() {
                   </div>
                   <StatusBadge status={app.status} />
                 </div>
-                <p className="mb-2 text-sm text-slate-600">{app.qualification}</p>
+                <p className="mb-2 text-sm text-slate-600">
+                  {app.qualification}
+                  {app.professionalQualification && ` · ${app.professionalQualification}`}
+                </p>
                 <div className="mb-3 flex flex-wrap gap-1">
                   {app.subjects.map((s) => (
                     <span key={s} className="rounded bg-slate-100 px-2 py-0.5 text-xs">{s}</span>

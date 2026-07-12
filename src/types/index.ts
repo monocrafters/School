@@ -4,6 +4,7 @@ export interface ApplicationFormData {
   name: string;
   phone: string;
   qualification: string;
+  professionalQualification?: string;
   subjects: string[];
   cvFileName?: string;
   cvData?: string;
@@ -14,6 +15,7 @@ export interface ApplicationRecord {
   name: string;
   phone: string;
   qualification: string;
+  professionalQualification?: string;
   subjects: string[];
   cvFileName?: string;
   cvData?: string;

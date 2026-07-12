@@ -11,7 +11,7 @@ export const maxDuration = 30;
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, phone, qualification, subjects, cvFileName, cvData } = body;
+    const { name, phone, qualification, professionalQualification, subjects, cvFileName, cvData } = body;
 
     if (!name?.trim() || !phone?.trim() || !qualification || !subjects?.length) {
       return NextResponse.json(
@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       name: name.trim(),
       phone: phone.trim(),
       qualification,
+      professionalQualification: professionalQualification || undefined,
       subjects,
       cvFileName,
       cvData,
@@ -49,6 +50,7 @@ export async function POST(request: NextRequest) {
         name: application.name,
         phone: application.phone,
         qualification: application.qualification,
+        professionalQualification: application.professionalQualification,
         subjects: application.subjects,
         cvFileName: application.cvFileName,
         status: application.status,

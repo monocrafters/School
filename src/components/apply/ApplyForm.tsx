@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Upload, Loader2, AlertCircle } from "lucide-react";
-import { QUALIFICATIONS, SUBJECTS } from "@/lib/constants";
+import { QUALIFICATIONS, PROFESSIONAL_QUALIFICATIONS, SUBJECTS } from "@/lib/constants";
 import {
   saveDraft,
   loadDraft,
@@ -20,6 +20,7 @@ const emptyForm: ApplicationFormData = {
   name: "",
   phone: "",
   qualification: "",
+  professionalQualification: "",
   subjects: [],
 };
 
@@ -37,6 +38,7 @@ export default function ApplyForm() {
         name: draft.name || "",
         phone: draft.phone || "",
         qualification: draft.qualification || "",
+        professionalQualification: draft.professionalQualification || "",
         subjects: draft.subjects || [],
         cvFileName: draft.cvFileName,
         cvData: draft.cvData,
@@ -160,6 +162,26 @@ export default function ApplyForm() {
             >
               <option value="">Select qualification</option>
               {QUALIFICATIONS.map((q) => (
+                <option key={q} value={q}>
+                  {q}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-slate-700">
+              Professional Qualification
+            </label>
+            <select
+              value={form.professionalQualification || ""}
+              onChange={(e) =>
+                setForm({ ...form, professionalQualification: e.target.value })
+              }
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-[#1a237e] focus:ring-2 focus:ring-[#1a237e]/20"
+            >
+              <option value="">Select professional qualification</option>
+              {PROFESSIONAL_QUALIFICATIONS.map((q) => (
                 <option key={q} value={q}>
                   {q}
                 </option>

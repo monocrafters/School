@@ -6,6 +6,7 @@ const ApplicationSchema = new Schema(
     name: { type: String, required: true, trim: true },
     phone: { type: String, required: true, trim: true },
     qualification: { type: String, required: true },
+    professionalQualification: { type: String },
     subjects: { type: [String], required: true },
     cvFileName: { type: String },
     cvData: { type: String },

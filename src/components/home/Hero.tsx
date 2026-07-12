@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap, Users } from "lucide-react";
 import {
   HERO_QUALIFICATIONS,
+  PROFESSIONAL_QUALIFICATIONS,
   HERO_SUBJECTS,
   SCHOOL_FULL_NAME,
 } from "@/lib/constants";
@@ -87,6 +88,23 @@ export default function Hero() {
                     <span
                       key={qual}
                       className="rounded-md bg-white px-2 py-0.5 text-[11px] font-bold text-[#1a237e] sm:rounded-lg sm:px-3 sm:py-1.5 sm:text-sm"
+                    >
+                      {qual}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="mb-1.5 flex items-center justify-center gap-1 text-[10px] font-semibold uppercase tracking-widest text-blue-200/80 sm:text-xs lg:justify-start">
+                  <GraduationCap className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                  Professional
+                </p>
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 lg:justify-start">
+                  {PROFESSIONAL_QUALIFICATIONS.map((qual) => (
+                    <span
+                      key={qual}
+                      className="rounded-md border border-amber-400/40 bg-amber-500/15 px-2 py-0.5 text-[11px] font-semibold text-amber-100 sm:rounded-lg sm:px-3 sm:py-1.5 sm:text-sm"
                     >
                       {qual}
                     </span>

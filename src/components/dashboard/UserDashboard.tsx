@@ -115,6 +115,13 @@ export default function UserDashboard() {
             <InfoItem icon={User} label="Full Name" value={application.name} />
             <InfoItem icon={Phone} label="Phone" value={application.phone} />
             <InfoItem icon={GraduationCap} label="Qualification" value={application.qualification} />
+            {application.professionalQualification && (
+              <InfoItem
+                icon={GraduationCap}
+                label="Professional Qualification"
+                value={application.professionalQualification}
+              />
+            )}
             <InfoItem
               icon={Calendar}
               label="Submitted On"

@@ -31,6 +31,7 @@ export async function GET(request: NextRequest) {
         name: app.name,
         phone: app.phone,
         qualification: app.qualification,
+        professionalQualification: app.professionalQualification,
         subjects: app.subjects,
         cvFileName: app.cvFileName,
         status: app.status,
